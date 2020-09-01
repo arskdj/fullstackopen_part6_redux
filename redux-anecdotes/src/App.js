@@ -1,15 +1,16 @@
 import React from 'react'
 import AnecdoteList from './components/AnecdoteList'
-import NewAnecdote from './components/NewAnecdote'
+import AnecdoteForm from './components/AnecdoteForm'
 
 const App = () => {
 
-  return (
-    <div>
-        <NewAnecdote/>
-        <AnecdoteList/>
-    </div>
-  )
+    return (
+        <div>
+            <h2>Anecdotes</h2>
+            <AnecdoteForm/>
+            <AnecdoteList/>
+        </div>
+    )
 }
 
 export default App
