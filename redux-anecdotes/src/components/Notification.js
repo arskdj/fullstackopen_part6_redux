@@ -9,11 +9,17 @@ const Notification = () => {
     padding: 10,
     borderWidth: 1
   }
-  return (
-    <div style={style}>
-      { notification }
-    </div>
-  )
+    const show = () => {
+        return (
+          <div style={style}>
+            { notification }
+          </div>
+        )
+    }
+
+    return notification
+        ? show()
+        : null
 }
 
 export default Notification
