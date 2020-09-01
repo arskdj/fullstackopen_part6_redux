@@ -10,14 +10,14 @@ const anecdoteReducer = (state = [], action) => {
             return  state.concat(newAnecdote)
         }
         case 'VOTE': {
+            const id = action.data.id
             let newState = []
             newState =  newState.concat(...state)
 
-            const objIndex = state.findIndex(o => o.id === action.data.id) 
+            const objIndex = state.findIndex(o => o.id === id) 
             const obj = state[objIndex]
             const newObj = { ...obj, votes: obj.votes + 1 }
             newState.splice(objIndex, 1, newObj)
-            newState.sort((a,b) => b.votes - a.votes )
 
             return newState
         }
@@ -30,12 +30,14 @@ const anecdoteReducer = (state = [], action) => {
 
 
 export const vote = (id) => {
-    console.log('vote called')
-    return {
-        type: 'VOTE',
-        data : {
-            id
-        }
+    return async dispatch => {
+        const anecdote = await anecdoteService.vote(id)
+        dispatch({
+            type: 'VOTE',
+            data : {
+                id: anecdote.id
+            }
+        })   
     }
 }
 
