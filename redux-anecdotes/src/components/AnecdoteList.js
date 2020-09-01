@@ -1,9 +1,10 @@
-import React, {useState} from "react"
-import {vote} from '../reducers/anecdoteReducer'
+import React, {useState, useEffect} from "react"
+import {initAnecdotes, vote} from '../reducers/anecdoteReducer'
 import {setNotification} from '../reducers/notificationReducer'
 import { useSelector, useDispatch } from 'react-redux'
 
 const AnecdoteList = () => {
+  const dispatch = useDispatch()
   const anecdotes = useSelector(({anecdotes, filter}) => {
       if (!filter)
           return anecdotes
@@ -13,7 +14,8 @@ const AnecdoteList = () => {
                return a.content.search(filter) + 1
           })
   })
-  const dispatch = useDispatch()
+
+
 
   const voteHandler = (id) => {
       dispatch(vote(id))
