@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react"
-import {initAnecdotes, vote} from '../reducers/anecdoteReducer'
+import React from "react"
+import {vote} from '../reducers/anecdoteReducer'
 import {setNotification} from '../reducers/notificationReducer'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import {connect} from 'react-redux'
 
 const AnecdoteList = ({anecdotes, filter, vote, setNotification}) => {
 
@@ -30,8 +30,6 @@ const AnecdoteList = ({anecdotes, filter, vote, setNotification}) => {
 }
 
 const mapStateToProps = (state) => {
-    // sometimes it is useful to console log from mapStateToProps
-    console.log(state)
     const filter = state.filter
     const anecdotes = !filter
         ? state.anecdotes

@@ -33,7 +33,7 @@
     {
       "content": "qqq",
       "id": "29634",
-      "votes": 40
+      "votes": 41
     },
     {
       "content": "aaa",
@@ -44,6 +44,26 @@
       "content": "zzz",
       "id": "59728",
       "votes": 0
+    },
+    {
+      "content": "new anecdote",
+      "id": "63850",
+      "votes": 8
+    },
+    {
+      "content": "new anecdote",
+      "id": "52078",
+      "votes": 5
+    },
+    {
+      "content": "new anecdote",
+      "id": "87123",
+      "votes": 2
+    },
+    {
+      "content": "new anecdote",
+      "id": "29266",
+      "votes": 2
     }
   ]
 }
