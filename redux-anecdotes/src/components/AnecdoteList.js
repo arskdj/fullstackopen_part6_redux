@@ -4,7 +4,15 @@ import {setNotification} from '../reducers/notificationReducer'
 import { useSelector, useDispatch } from 'react-redux'
 
 const AnecdoteList = () => {
-  const anecdotes = useSelector(state => state.anecdotes)
+  const anecdotes = useSelector(({anecdotes, filter}) => {
+      if (!filter)
+          return anecdotes
+      else
+          return anecdotes.filter(a => {
+               console.log(a.content)
+               return a.content.search(filter) + 1
+          })
+  })
   const dispatch = useDispatch()
 
   const voteHandler = (id) => {
