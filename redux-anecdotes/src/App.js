@@ -6,8 +6,8 @@ const App = () => {
 
   return (
     <div>
-        <AnecdoteList/>
         <NewAnecdote/>
+        <AnecdoteList/>
     </div>
   )
 }

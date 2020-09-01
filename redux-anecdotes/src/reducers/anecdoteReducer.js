@@ -24,8 +24,10 @@ const reducer = (state = initialState, action) => {
     console.log('action', action)
 
     switch (action.type){
-        case 'CREATE':
-            return state.concat(asObject(action.data))
+        case 'CREATE': {
+            const newState = state.concat(asObject(action.data.content))
+            return newState
+        }
         case 'VOTE': {
             let newState = []
             newState =  newState.concat(...state)
@@ -45,6 +47,13 @@ const reducer = (state = initialState, action) => {
 }
 
 export const createAnecdote = (content) => {
+    console.log('createAnecdote called')
+    return {
+        type: 'CREATE',
+        data : {
+            content
+        }
+    }
 
 }
 
