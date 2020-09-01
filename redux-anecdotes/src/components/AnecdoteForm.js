@@ -8,7 +8,6 @@ const AnecdoteForm = () => {
     const onSubmitHandler = async (event) => {
         event.preventDefault()
         const newAnecdote = event.target.anecdote.value
-        console.log('newAnecdote', newAnecdote)
         dispatch(createAnecdote(newAnecdote))
     }
 
