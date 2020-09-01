@@ -36,6 +36,7 @@ const reducer = (state = initialState, action) => {
             const obj = state[objIndex]
             const newObj = { ...obj, votes: obj.votes + 1 }
             newState.splice(objIndex, 1, newObj)
+            newState.sort((a,b) => b.votes - a.votes )
 
             return newState
 
