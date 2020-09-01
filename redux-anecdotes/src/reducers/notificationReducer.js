@@ -1,5 +1,7 @@
 const message = 'default notification message'
 
+let tid = null
+
 const notificationReducer = (state=message, action) => {
     switch (action.type){
         case 'SET_NOTIFICATION':
@@ -21,10 +23,18 @@ export const setNotification = (message, seconds) => {
                 }
             })
         }
-        
+
+        const clear = () => {
+            tid !== null && clearTimeout(tid)
+            tid = setTimeout( () => {
+                console.log('clearing tid', tid)
+                notify(null)  
+                tid = null
+            }, seconds * 1000)
+        }
 
         notify(message)
-        setTimeout( () => notify(null), seconds * 1000)
+        clear()
     }
 }
 
